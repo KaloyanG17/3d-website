@@ -20,15 +20,24 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import vue from "./tech/Vue.png";
+import nuxt from "./tech/nuxt.png";
+import java from "./tech/java.png";
+import c from "./tech/c.png";
+import python from "./tech/python.png";
+import php from "./tech/php.png";
+import haskell from "./tech/haskell.png";
+import prolog from "./tech/prolog.png";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
+import refactory from "./company/refactory.ong-modified.png";
+import star from "./company/star-logo.png";
+import gaynes from "./company/gaynes.jpeg";
+import havering from "./company/havering.png";
+import exeter from "./company/exeter.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import twitter from "./twitter.png";
+import spotify from "./spotify.png";
+import website from "./website.png";
 
 export {
   logo,
@@ -52,11 +61,20 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
-  carrent,
-  jobit,
-  tripguide,
+  vue,
+  nuxt,
+  java,
+  c,
+  python,
+  php,
+  haskell,
+  prolog,
+  refactory,
+  star,
+  gaynes,
+  havering,
+  exeter,
+  twitter,
+  spotify,
+  website
 };

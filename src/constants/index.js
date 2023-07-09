@@ -13,16 +13,24 @@ import {
    nodejs,
    mongodb,
    git,
-   figma,
+   vue,
+   nuxt,
+   java,
+   c,
+   python,
+   php,
+   haskell,
+   prolog,
    docker,
-   meta,
-   starbucks,
-   tesla,
-   shopify,
-   carrent,
-   jobit,
-   tripguide,
    threejs,
+   refactory,
+   star,
+   gaynes,
+   havering,
+   exeter,
+   twitter,
+   spotify,
+    website,
  } from "../assets";
  
  export const navLinks = [
@@ -41,33 +49,26 @@ import {
  ];
  
  const services = [
+     {
+     title: "Computer Science Student",
+     icon: mobile,
+   },
    {
      title: "Web Developer",
      icon: web,
    },
    {
-     title: "Computer Science Student",
-     icon: mobile,
-   },
-   {
-     title: "Backend Developer",
-     icon: backend,
-   },
-   {
      title: "Frontend Developer",
      icon: creator,
    },
+
+   {
+    title: "Backend Developer",
+    icon: backend,
+  }
  ];
  
  const technologies = [
-   {
-     name: "HTML 5",
-     icon: html,
-   },
-   {
-     name: "CSS 3",
-     icon: css,
-   },
    {
      name: "JavaScript",
      icon: javascript,
@@ -81,96 +82,106 @@ import {
      icon: reactjs,
    },
    {
-     name: "Redux Toolkit",
-     icon: redux,
-   },
-   {
      name: "Tailwind CSS",
      icon: tailwind,
-   },
-   {
-     name: "Node JS",
-     icon: nodejs,
-   },
-   {
-     name: "MongoDB",
-     icon: mongodb,
    },
    {
      name: "Three JS",
      icon: threejs,
    },
    {
-     name: "git",
-     icon: git,
+     name: "Vue",
+     icon: vue,
    },
-   {
-     name: "figma",
-     icon: figma,
-   },
-   {
-     name: "docker",
-     icon: docker,
-   },
+    {
+      name: "Nuxt",
+      icon: nuxt,
+    },
+    {
+      name: "Java",
+      icon: java,
+    },
+    {
+      name: "C",
+      icon: c,
+    },
+    {
+      name: "Python",
+      icon: python,
+    },
+    {
+      name: "PHP",
+      icon: php,
+    },
+    {
+      name: "Haskell",
+      icon: haskell,
+    },
+    {
+      name: "Prolog",
+      icon: prolog,
+    },
  ];
  
  const experiences = [
    {
-     title: "React.js Developer",
-     company_name: "Starbucks",
-     icon: starbucks,
-     iconBg: "#383E56",
-     date: "March 2020 - April 2021",
-     points: [
-       "Developing and maintaining web applications using React.js and other related technologies.",
-       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-       "Implementing responsive design and ensuring cross-browser compatibility.",
-       "Participating in code reviews and providing constructive feedback to other developers.",
-     ],
+      title: "SATs",
+      company_name: "Star Primary School",
+      icon: star,
+      iconBg: "#E6DEDD" ,
+      date: "September 2010 - July 2014",
+      points: [
+        "6 in Maths",
+        "5 in Science",
+        "4 in English",
+      ]
    },
    {
-     title: "React Native Developer",
-     company_name: "Tesla",
-     icon: tesla,
-     iconBg: "#E6DEDD",
-     date: "Jan 2021 - Feb 2022",
-     points: [
-       "Developing and maintaining web applications using React.js and other related technologies.",
-       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-       "Implementing responsive design and ensuring cross-browser compatibility.",
-       "Participating in code reviews and providing constructive feedback to other developers.",
-     ],
-   },
-   {
-     title: "Web Developer",
-     company_name: "Shopify",
-     icon: shopify,
-     iconBg: "#383E56",
-     date: "Jan 2022 - Jan 2023",
-     points: [
-       "Developing and maintaining web applications using React.js and other related technologies.",
-       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-       "Implementing responsive design and ensuring cross-browser compatibility.",
-       "Participating in code reviews and providing constructive feedback to other developers.",
-     ],
-   },
-   {
-     title: "Full stack Developer",
-     company_name: "Meta",
-     icon: meta,
-     iconBg: "#E6DEDD",
-     date: "Jan 2023 - Present",
-     points: [
-       "Developing and maintaining web applications using React.js and other related technologies.",
-       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-       "Implementing responsive design and ensuring cross-browser compatibility.",
-       "Participating in code reviews and providing constructive feedback to other developers.",
-     ],
-   },
-   {
+    title: "GCSEs" ,
+    company_name: "Gaynes Secondary School",
+    icon: gaynes,
+    iconBg: "#E6DEDD",
+    date: "September 2014 - July 2019",
+    points: [
+      "9 in Maths",
+      "77 in Combined Science",
+      "7 in Design and Techonolgy",
+      "6 in English Literature",
+      "6 in English Language",
+      "6 in Business",
+      "5 in Geography",
+      "5 in Religious Education",
+      "A in Further Maths",
+    ]
+  },
+  {
+    title: "A Levels" ,
+    company_name: "Havering Sixth Form College" ,
+    icon: havering,
+    iconBg: "#E6DEDD",
+    date: "September 2019 - July 2021",
+    points: [
+      "A in Maths",
+      "B in Computer Science",
+      "C in Further Maths",
+    ]
+  },
+  {
+    title: "Bachelor's Degree in Computer Science" ,
+    company_name: "University of Exeter" ,
+    icon: exeter,
+    iconBg: "#E6DEDD",
+    date: "September 2021 - July 2024",
+    points: [
+      "First Year passed with a Upper Second-Class Honour",
+      "Second Year passed with a Upper Second-Class Honour",
+      "Third Year in progress"
+    ]
+  },
+  {
     title: "Summer Internship",
     company_name: "Refactory BG",
-    icon: meta,
+    icon: refactory,
     iconBg: "#E6DEDD",
     date: "May 2023 - August 2023",
     points: [
@@ -211,90 +222,85 @@ import {
  ];
  
  const projects = [
-   {
-     name: "Car Rent",
-     description:
-       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-     tags: [
-       {
-         name: "react",
-         color: "blue-text-gradient",
-       },
-       {
-         name: "mongodb",
-         color: "green-text-gradient",
-       },
-       {
-         name: "tailwind",
-         color: "pink-text-gradient",
-       },
-     ],
-     image: carrent,
-     source_code_link: "https://github.com/KaloyanG17",
-   },
-   {
-     name: "Job IT",
-     description:
-       "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-     tags: [
-       {
-         name: "react",
-         color: "blue-text-gradient",
-       },
-       {
-         name: "restapi",
-         color: "green-text-gradient",
-       },
-       {
-         name: "scss",
-         color: "pink-text-gradient",
-       },
-     ],
-     image: jobit,
-     source_code_link: "https://github.com/",
-   },
-   {
-     name: "Trip Guide",
-     description:
-       "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-     tags: [
-       {
-         name: "nextjs",
-         color: "blue-text-gradient",
-       },
-       {
-         name: "supabase",
-         color: "green-text-gradient",
-       },
-       {
-         name: "css",
-         color: "pink-text-gradient",
-       },
-     ],
-     image: tripguide,
-     source_code_link: "https://github.com/",
-   },
-   {
-    name: "Test Project",
+  {
+    name: "Portfolio Website",
     description:
-      "A test project for a test purpose.",
+      "My portfolio website which you are on rignt now. It is build using ReactJS, TailwindCSS and ThreeJS. It is deplayed on Vercel.",
     tags: [
       {
-        name: "nextjs",
+        name: "ReactJS",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "ThreeJS",
         color: "green-text-gradient",
       },
       {
-        name: "css",
-        color: "pink-text-gradient",
+        name: "TailwindCSS",
+        color: "blue-text-gradient",
       },
     ],
-    image: javascript,
-    source_code_link: "https://github.com/",
+    image: website,
+    source_code_link: "https://github.com/KaloyanG17/3d-website",
+    demo_link: "https://kaloyan.vercel.app",
   },
+   {
+    name: "Twitter Clone",
+    description:
+      "A Twitter clone with many of the same features as Twitter. It includes authentication, posting, commenting and more. It is build using Vue3, Nuxt3, TailwindCSS and Prisma. It is deplayed on Vercel and uses a MongoDB database and Cloudinary for image storage.",
+    tags: [
+      {
+        name: "Vue3",
+        color: "green-text-gradient",
+      },
+      {
+        name: "TailwindCSS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Nuxt3",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Prisma",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "MongoDB",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Cloudinary",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: twitter,
+    source_code_link: "https://github.com/KaloyanG17/twitter-clone",
+    demo_link: "https://twitter-kg.vercel.app",
+  },
+  {
+    name: "Spotify Clone",
+    description:
+      "A Spotify clone with some of the main features of spotify. It comes with an album which you can listen to with full control over the music. It is built using Vue3, Pinia and TailwindCSS. It is deplayed on Vercel.",
+    tags: [
+      {
+        name: "Vue3",
+        color: "green-text-gradient",
+      },
+      {
+        name: "TailwindCSS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Pinia",
+        color: "green-text-gradient",
+      },
+    ],
+    image: spotify,
+    source_code_link: "https://github.com/KaloyanG17/spotify-clone",
+    demo_link: "https://spotify-clone-kg.vercel.app",
+  },
+  
  ];
  
  export { services, technologies, experiences, testimonials, projects };

@@ -175,7 +175,7 @@ import {
     points: [
       "First Year passed with a Upper Second-Class Honour",
       "Second Year passed with a Upper Second-Class Honour",
-      "Third Year in progress"
+      "Third Year passed with a Upper Second-Class Honour"
     ]
   },
   {
@@ -190,6 +190,18 @@ import {
       "Migrating projects from Vue2 to Vue3 and Nuxt2 to Nuxt3",
       "Migrating old projects from Angular7 and Electron3 to newer versions",
       "Learned about Virtual Machines",
+    ],
+   },
+   {
+    title: "Web Developer",
+    company_name: "Secure.bg",
+    icon: web,
+    iconBg: "#E6DEDD",
+    date: "January 2025 - Present",
+    points: [
+      "Working as a full-stack web developer using JavaScript and PHP",
+      "Developing and maintaining web applications with jQuery",
+      "Working with modern web technologies and frameworks",
     ],
    }
  ];
@@ -222,6 +234,28 @@ import {
  ];
  
  const projects = [
+  {
+    name: "3D Simulated Motorsport",
+    description:
+      "A 3D motorsport simulation project that showcases realistic racing physics and environments. Built using Three.js for 3D graphics and JavaScript for game logic. Features include realistic car physics, track rendering, and interactive controls. Additionally an AI agent is implemented to simulate a racing opponent with a ANN used to create the strategy dynamically throught the race.",
+    tags: [
+      {
+        name: "Three.js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "JavaScript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "WebGL",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: threejs,
+    source_code_link: "https://github.com/KaloyanG17/Simulated-Motorsport",
+    demo_link: "https://simulated-motorsport.vercel.app",
+  },
   {
     name: "Portfolio Website",
     description:

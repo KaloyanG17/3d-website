@@ -38,6 +38,8 @@ import exeter from "./company/exeter.png";
 import twitter from "./twitter.png";
 import spotify from "./spotify.png";
 import website from "./website.png";
+import shiplog from "./shiplog.jpg";
+import simulatedMotorsport from "./simulated-motorsport.jpg";
 
 export {
   logo,
@@ -76,5 +78,7 @@ export {
   exeter,
   twitter,
   spotify,
-  website
+  website,
+  shiplog,
+  simulatedMotorsport
 };

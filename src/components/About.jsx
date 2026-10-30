@@ -44,12 +44,10 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        I'm a Computer Science student at the University of Exeter. 
-        I have experience in full-stack web development, through languages such as 
-        JavaScript, Python, Java, C, Haskell, Prolog, PHP, just to name a few,
-        and further expertise in framewroks such as Vue, React, Nuxt, Prisma, Pinia, TailwindCSS and many more.
-        I'm a quick learner and passion driven individual, always looking to learn new things and improve my skills.
-        I have worked on a variety of projects, from small personal projects to large scale group projects.
+        I'm a full-stack web developer and Computer Science graduate from the University of Exeter,
+        working professionally with JavaScript and PHP. Outside work I build with TypeScript, React, Next.js,
+        Vue and Nuxt, from a GitHub-synced dev board with an AI journal to 3D experiences in Three.js.
+        I'm a quick learner who enjoys picking up new tools and turning ideas into polished, working products.
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

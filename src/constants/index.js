@@ -5,13 +5,9 @@ import {
    web,
    javascript,
    typescript,
-   html,
-   css,
    reactjs,
-   redux,
    tailwind,
    nodejs,
-   mongodb,
    git,
    vue,
    nuxt,
@@ -21,16 +17,15 @@ import {
    php,
    haskell,
    prolog,
-   docker,
    threejs,
    refactory,
-   star,
-   gaynes,
    havering,
    exeter,
    twitter,
    spotify,
     website,
+    shiplog,
+    simulatedMotorsport,
  } from "../assets";
  
  export const navLinks = [
@@ -48,293 +43,153 @@ import {
    },
  ];
  
+ // Projects are loaded from GitHub (see src/hooks/useGithubProjects.js):
+ // tag a public repo with this topic to show it on the site.
+ export const GITHUB_USER = "KaloyanG17";
+ export const PORTFOLIO_TOPIC = "portfolio";
+
  const services = [
-     {
-     title: "Computer Science Student",
-     icon: mobile,
-   },
    {
-     title: "Web Developer",
+     title: "Full-Stack Developer",
      icon: web,
    },
    {
-     title: "Frontend Developer",
+     title: "Frontend: React, Vue, Next.js",
      icon: creator,
    },
+   {
+     title: "Backend: PHP, Node.js, SQL",
+     icon: backend,
+   },
+   {
+     title: "3D on the Web: Three.js",
+     icon: mobile,
+   },
+ ];
 
-   {
-    title: "Backend Developer",
-    icon: backend,
-  }
- ];
- 
  const technologies = [
-   {
-     name: "JavaScript",
-     icon: javascript,
-   },
-   {
-     name: "TypeScript",
-     icon: typescript,
-   },
-   {
-     name: "React JS",
-     icon: reactjs,
-   },
-   {
-     name: "Tailwind CSS",
-     icon: tailwind,
-   },
-   {
-     name: "Three JS",
-     icon: threejs,
-   },
-   {
-     name: "Vue",
-     icon: vue,
-   },
-    {
-      name: "Nuxt",
-      icon: nuxt,
-    },
-    {
-      name: "Java",
-      icon: java,
-    },
-    {
-      name: "C",
-      icon: c,
-    },
-    {
-      name: "Python",
-      icon: python,
-    },
-    {
-      name: "PHP",
-      icon: php,
-    },
-    {
-      name: "Haskell",
-      icon: haskell,
-    },
-    {
-      name: "Prolog",
-      icon: prolog,
-    },
+   { name: "JavaScript", icon: javascript },
+   { name: "TypeScript", icon: typescript },
+   { name: "React JS", icon: reactjs },
+   { name: "Node.js", icon: nodejs },
+   { name: "Tailwind CSS", icon: tailwind },
+   { name: "Three JS", icon: threejs },
+   { name: "Vue", icon: vue },
+   { name: "Nuxt", icon: nuxt },
+   { name: "PHP", icon: php },
+   { name: "Git", icon: git },
+   { name: "Java", icon: java },
+   { name: "C", icon: c },
+   { name: "Python", icon: python },
+   { name: "Haskell", icon: haskell },
+   { name: "Prolog", icon: prolog },
  ];
- 
+
+ // Newest first.
  const experiences = [
    {
-      title: "SATs",
-      company_name: "Star Primary School",
-      icon: star,
-      iconBg: "#E6DEDD" ,
-      date: "September 2010 - July 2014",
-      points: [
-        "6 in Maths",
-        "5 in Science",
-        "4 in English",
-      ]
+     title: "Web Developer",
+     company_name: "Secure.bg",
+     icon: web,
+     iconBg: "#E6DEDD",
+     date: "January 2025 - Present",
+     points: [
+       "Full-stack web development with JavaScript and PHP",
+       "Building and maintaining web applications with jQuery, AJAX and MySQL",
+       "Working with REST APIs, WebSockets and legacy system maintenance",
+     ],
    },
    {
-    title: "GCSEs" ,
-    company_name: "Gaynes Secondary School",
-    icon: gaynes,
-    iconBg: "#E6DEDD",
-    date: "September 2014 - July 2019",
-    points: [
-      "9 in Maths",
-      "77 in Combined Science",
-      "7 in Design and Techonolgy",
-      "6 in English Literature",
-      "6 in English Language",
-      "6 in Business",
-      "5 in Geography",
-      "5 in Religious Education",
-      "A in Further Maths",
-    ]
-  },
-  {
-    title: "A Levels" ,
-    company_name: "Havering Sixth Form College" ,
-    icon: havering,
-    iconBg: "#E6DEDD",
-    date: "September 2019 - July 2021",
-    points: [
-      "A in Maths",
-      "B in Computer Science",
-      "C in Further Maths",
-    ]
-  },
-  {
-    title: "Bachelor's Degree in Computer Science" ,
-    company_name: "University of Exeter" ,
-    icon: exeter,
-    iconBg: "#E6DEDD",
-    date: "September 2021 - July 2024",
-    points: [
-      "First Year passed with a Upper Second-Class Honour",
-      "Second Year passed with a Upper Second-Class Honour",
-      "Third Year passed with a Upper Second-Class Honour"
-    ]
-  },
-  {
-    title: "Summer Internship",
-    company_name: "Refactory BG",
-    icon: refactory,
-    iconBg: "#E6DEDD",
-    date: "May 2023 - August 2023",
-    points: [
-      "Learned all about Vue2.js and Vue3.js",
-      "Learned further about Nuxt2.js and Nuxt3.js",
-      "Migrating projects from Vue2 to Vue3 and Nuxt2 to Nuxt3",
-      "Migrating old projects from Angular7 and Electron3 to newer versions",
-      "Learned about Virtual Machines",
-    ],
+     title: "BSc Computer Science",
+     company_name: "University of Exeter",
+     icon: exeter,
+     iconBg: "#E6DEDD",
+     date: "September 2021 - July 2024",
+     points: [
+       "Every year completed with Upper Second-Class (2:1) results",
+       "Dissertation: an AI-driven 3D motorsport race simulation (Three.js, neural networks)",
+       "Modules across software engineering, AI, databases and functional and logic programming",
+     ],
    },
    {
-    title: "Web Developer",
-    company_name: "Secure.bg",
-    icon: web,
-    iconBg: "#E6DEDD",
-    date: "January 2025 - Present",
-    points: [
-      "Working as a full-stack web developer using JavaScript and PHP",
-      "Developing and maintaining web applications with jQuery",
-      "Working with modern web technologies and frameworks",
-    ],
-   }
- ];
- 
- const testimonials = [
-   {
-     testimonial:
-       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-     name: "Sara Lee",
-     designation: "CFO",
-     company: "Acme Co",
-     image: "https://randomuser.me/api/portraits/women/4.jpg",
+     title: "Summer Internship",
+     company_name: "Refactory BG",
+     icon: refactory,
+     iconBg: "#E6DEDD",
+     date: "May 2023 - August 2023",
+     points: [
+       "Migrated projects from Vue 2 to Vue 3 and Nuxt 2 to Nuxt 3",
+       "Upgraded older Angular 7 and Electron 3 projects to newer versions",
+       "Worked with Vue, Nuxt and virtual machines in a production team",
+     ],
    },
    {
-     testimonial:
-       "I've never met a web developer who truly cares about their clients' success like Rick does.",
-     name: "Chris Brown",
-     designation: "COO",
-     company: "DEF Corp",
-     image: "https://randomuser.me/api/portraits/men/5.jpg",
-   },
-   {
-     testimonial:
-       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-     name: "Lisa Wang",
-     designation: "CTO",
-     company: "456 Enterprises",
-     image: "https://randomuser.me/api/portraits/women/6.jpg",
+     title: "A Levels",
+     company_name: "Havering Sixth Form College",
+     icon: havering,
+     iconBg: "#E6DEDD",
+     date: "September 2019 - July 2021",
+     points: ["A in Maths", "B in Computer Science", "C in Further Maths"],
    },
  ];
- 
+
+ // Curated details for repos shown from GitHub: a better name, description,
+ // tags or a screenshot. Repos without an entry use their GitHub details.
+ export const projectOverrides = {
+   shiplog: {
+     name: "Shiplog",
+     description:
+       "A dev board that keeps itself in sync with GitHub: issues become kanban cards, pull requests move them, and moving a card updates the issue. An AI journal writes up each day, and projects get a public roadmap and changelog.",
+     tags: ["Next.js", "TypeScript", "PostgreSQL"],
+     image: shiplog,
+   },
+   "Simulated-Motorsport": {
+     name: "3D Simulated Motorsport",
+     description:
+       "My dissertation: a 3D race in the browser where AI controls both driving and strategy. YUKA steering drives the cars, and a Brain.js neural network decides tyres and pit stops.",
+     tags: ["Three.js", "JavaScript", "Neural Networks"],
+     image: simulatedMotorsport,
+   },
+   "3d-website": {
+     name: "Portfolio Website",
+     description:
+       "This site: an interactive 3D portfolio built with React, Three.js and Tailwind CSS, with projects loaded live from GitHub. Deployed on Vercel.",
+     tags: ["React", "Three.js", "TailwindCSS"],
+     image: website,
+   },
+   "twitter-clone": {
+     name: "Twitter Clone",
+     description:
+       "A Twitter clone with authentication, posting and commenting, built with Vue 3, Nuxt 3, Tailwind CSS and Prisma, with MongoDB and Cloudinary for storage.",
+     tags: ["Vue3", "Nuxt3", "Prisma"],
+     image: twitter,
+   },
+   "spotify-clone": {
+     name: "Spotify Clone",
+     description:
+       "A Spotify-style music player with an album you can play with full playback controls, built with Vue 3, Pinia and Tailwind CSS.",
+     tags: ["Vue3", "Pinia", "TailwindCSS"],
+     image: spotify,
+   },
+ };
+
+ // Shown while GitHub loads, or if it can't be reached.
+ const TAG_COLORS = ["blue-text-gradient", "green-text-gradient", "pink-text-gradient"];
+ const fallback = (repo, links) => {
+   const { tags, ...rest } = projectOverrides[repo];
+   return {
+     ...rest,
+     tags: tags.map((name, i) => ({ name, color: TAG_COLORS[i % TAG_COLORS.length] })),
+     source_code_link: `https://github.com/${GITHUB_USER}/${repo}`,
+     demo_link: links,
+   };
+ };
  const projects = [
-  {
-    name: "3D Simulated Motorsport",
-    description:
-      "A 3D motorsport simulation project that showcases realistic racing physics and environments. Built using Three.js for 3D graphics and JavaScript for game logic. Features include realistic car physics, track rendering, and interactive controls. Additionally an AI agent is implemented to simulate a racing opponent with a ANN used to create the strategy dynamically throught the race.",
-    tags: [
-      {
-        name: "Three.js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "JavaScript",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "WebGL",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: threejs,
-    source_code_link: "https://github.com/KaloyanG17/Simulated-Motorsport",
-    demo_link: "https://simulated-motorsport.vercel.app",
-  },
-  {
-    name: "Portfolio Website",
-    description:
-      "My portfolio website which you are on rignt now. It is build using ReactJS, TailwindCSS and ThreeJS. It is deplayed on Vercel.",
-    tags: [
-      {
-        name: "ReactJS",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "ThreeJS",
-        color: "green-text-gradient",
-      },
-      {
-        name: "TailwindCSS",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: website,
-    source_code_link: "https://github.com/KaloyanG17/3d-website",
-    demo_link: "https://kaloyan.vercel.app",
-  },
-   {
-    name: "Twitter Clone",
-    description:
-      "A Twitter clone with many of the same features as Twitter. It includes authentication, posting, commenting and more. It is build using Vue3, Nuxt3, TailwindCSS and Prisma. It is deplayed on Vercel and uses a MongoDB database and Cloudinary for image storage.",
-    tags: [
-      {
-        name: "Vue3",
-        color: "green-text-gradient",
-      },
-      {
-        name: "TailwindCSS",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Nuxt3",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Prisma",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "MongoDB",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Cloudinary",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: twitter,
-    source_code_link: "https://github.com/KaloyanG17/twitter-clone",
-    demo_link: "https://twitter-kg.vercel.app",
-  },
-  {
-    name: "Spotify Clone",
-    description:
-      "A Spotify clone with some of the main features of spotify. It comes with an album which you can listen to with full control over the music. It is built using Vue3, Pinia and TailwindCSS. It is deplayed on Vercel.",
-    tags: [
-      {
-        name: "Vue3",
-        color: "green-text-gradient",
-      },
-      {
-        name: "TailwindCSS",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Pinia",
-        color: "green-text-gradient",
-      },
-    ],
-    image: spotify,
-    source_code_link: "https://github.com/KaloyanG17/spotify-clone",
-    demo_link: "https://spotify-clone-kg.vercel.app",
-  },
-  
+   fallback("shiplog", "https://shiplog-silk.vercel.app"),
+   fallback("Simulated-Motorsport", "https://simulated-motorsport.vercel.app"),
+   fallback("3d-website", "https://kaloyan.vercel.app"),
+   fallback("twitter-clone", "https://twitter-clone-kaloyang17.vercel.app"),
+   fallback("spotify-clone", "https://spotify-clone-kaloyang17.vercel.app"),
  ];
- 
- export { services, technologies, experiences, testimonials, projects };
+
+ export { services, technologies, experiences, projects };

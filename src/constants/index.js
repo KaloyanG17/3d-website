@@ -43,10 +43,17 @@ import {
    },
  ];
  
- // Projects are loaded from GitHub (see src/hooks/useGithubProjects.js):
- // tag a public repo with this topic to show it on the site.
+ // The projects section shows these GitHub repos, in this order, with their
+ // live details from GitHub (see src/hooks/useGithubProjects.js). To change
+ // what's on the site, edit this list: add a repo name, remove one, reorder.
  export const GITHUB_USER = "KaloyanG17";
- export const PORTFOLIO_TOPIC = "portfolio";
+ export const PORTFOLIO_REPOS = [
+   "shiplog",
+   "Simulated-Motorsport",
+   "3d-website",
+   "twitter-clone",
+   "spotify-clone",
+ ];
 
  const services = [
    {

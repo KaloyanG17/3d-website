@@ -7,8 +7,6 @@ import {
    typescript,
    reactjs,
    tailwind,
-   nodejs,
-   git,
    vue,
    nuxt,
    java,
@@ -74,17 +72,18 @@ import {
    },
  ];
 
+ // Each icon is its own 3D canvas. Browsers allow about 16 at once, and the
+ // hero PC, globe and stars use 3 of them: more than 13 icons here makes the
+ // browser drop the hero and globe (they render white).
  const technologies = [
    { name: "JavaScript", icon: javascript },
    { name: "TypeScript", icon: typescript },
    { name: "React JS", icon: reactjs },
-   { name: "Node.js", icon: nodejs },
    { name: "Tailwind CSS", icon: tailwind },
    { name: "Three JS", icon: threejs },
    { name: "Vue", icon: vue },
    { name: "Nuxt", icon: nuxt },
    { name: "PHP", icon: php },
-   { name: "Git", icon: git },
    { name: "Java", icon: java },
    { name: "C", icon: c },
    { name: "Python", icon: python },

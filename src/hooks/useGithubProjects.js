@@ -8,7 +8,7 @@ import { GITHUB_USER, PORTFOLIO_REPOS, projectOverrides, projects as fallbackPro
 // The hand-written list is shown while loading, and if GitHub can't be
 // reached (e.g. its 60 requests/hour limit for visitors).
 
-const CACHE_KEY = "portfolio-projects-v3";
+const CACHE_KEY = "portfolio-projects-v4";
 const CACHE_MS = 60 * 60 * 1000;
 const TAG_COLORS = ["blue-text-gradient", "green-text-gradient", "pink-text-gradient"];
 

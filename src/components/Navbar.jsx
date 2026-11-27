@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import { styles } from '../styles';
@@ -8,6 +9,8 @@ import { logo, menu, close } from '../assets';
 const Navbar = () => {
   const [active, setActive] = useState('');
   const [toggle, setToggle] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 });
 
   return (
     <nav
@@ -79,6 +82,11 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <motion.div
+        aria-hidden
+        style={{ scaleX: progress }}
+        className='absolute left-0 right-0 bottom-0 h-[2px] origin-left green-pink-gradient'
+      />
     </nav>
   )
 }

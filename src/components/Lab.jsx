@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 import { styles } from '../styles';
 import { labCover } from '../assets';
@@ -8,7 +9,12 @@ import { fadeIn, textVariant } from '../utils/motion';
 
 // Teaser for Kaloyan's Lab, which lives at /lab on this same site. The lab
 // has its own Swiss "ink" look, so the card borrows its red as a hint.
-const Lab = () => (
+const Lab = () => {
+  const card = useRef(null);
+  // the screenshot drifts against the card for a little depth
+  const { scrollYProgress } = useScroll({ target: card, offset: ['start end', 'end start'] });
+  const imageY = useTransform(scrollYProgress, [0, 1], ['-9%', '9%']);
+  return (
   <>
     <motion.div variants={textVariant()}>
       <p className={styles.sectionSubText}>Side projects</p>
@@ -18,6 +24,7 @@ const Lab = () => (
     </motion.div>
 
     <motion.a
+      ref={card}
       href={LAB_URL}
       variants={fadeIn('up', 'spring', 0.15, 0.75)}
       className='group mt-10 block p-[1px] rounded-[24px] bg-white/[0.08] hover:bg-[#ff3b1f] transition-colors duration-500'
@@ -40,16 +47,18 @@ const Lab = () => (
           </span>
         </div>
         <div className='order-1 lg:order-2 overflow-hidden rounded-2xl aspect-[2/1]'>
-          <img
+          <motion.img
+            style={{ y: imageY, scale: 1.2 }}
             src={labCover}
             alt="Kaloyan's Lab home page"
             loading='lazy'
-            className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]'
+            className='w-full h-full object-cover'
           />
         </div>
       </div>
     </motion.a>
   </>
-);
+  );
+};
 
 export default SectionWrapper(Lab, 'lab');

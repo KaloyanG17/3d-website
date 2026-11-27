@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 import { styles } from '../styles';
 import { experiences } from '../constants';
@@ -35,8 +36,13 @@ const TYPE_STYLES = {
 
 const Entry = ({ experience, index, last }) => {
   const current = experience.end === null;
+  const ref = useRef(null);
+  // the rail below this entry fills as the entry passes the middle of the screen
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 65%', 'end 45%'] });
+  const fill = useTransform(scrollYProgress, [0, 1], [0, 1]);
   return (
     <motion.li
+      ref={ref}
       variants={fadeIn('up', 'spring', 0.1 * index, 0.75)}
       className='relative grid gap-4 md:grid-cols-[200px_1fr] md:gap-10 pl-10 md:pl-0'
     >
@@ -49,10 +55,14 @@ const Entry = ({ experience, index, last }) => {
       </div>
 
       {/* rail: line + node (mobile on the left edge, desktop between columns) */}
-      <span
-        aria-hidden
-        className={`absolute left-[11px] md:left-[219px] top-7 w-px ${last ? 'h-0' : 'h-[calc(100%+2.5rem)]'} bg-gradient-to-b from-[#915eff]/70 to-white/10`}
-      />
+      {!last && (
+        <span aria-hidden className='absolute left-[11px] md:left-[219px] top-7 w-px h-[calc(100%+2.5rem)] bg-white/10'>
+          <motion.span
+            style={{ scaleY: fill }}
+            className='absolute inset-0 origin-top bg-gradient-to-b from-[#38ef7d] via-[#915eff] to-[#bf61ff]'
+          />
+        </span>
+      )}
       <span
         aria-hidden
         className={`absolute left-[4px] md:left-[212px] top-6 h-[15px] w-[15px] rounded-full border-2 ${

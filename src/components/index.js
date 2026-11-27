@@ -8,6 +8,7 @@ import Works from './Works';
 import Contact from './Contact';
 import Lab from './Lab';
 import Footer from './Footer';
+import ScrollGallery from './ScrollGallery';
 
 export {
   Hero,
@@ -19,6 +20,7 @@ export {
   Contact,
   Lab,
   Footer,
+  ScrollGallery,
   EarthCanvas, 
   BallCanvas, 
   ComputersCanvas, 

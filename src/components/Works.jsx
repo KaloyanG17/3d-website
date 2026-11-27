@@ -1,5 +1,5 @@
-import { Tilt } from 'react-tilt';
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 import { styles } from '../styles';
 import { github } from '../assets';
@@ -55,68 +55,84 @@ const Kind = ({ children }) => (
   </span>
 );
 
-const FeaturedProject = (project) => (
-  <motion.article
-    variants={fadeIn('up', 'spring', 0.1, 0.75)}
-    className='green-pink-gradient p-[1px] rounded-[24px] shadow-card'
-  >
-    <div className='bg-tertiary rounded-[23px] p-5 sm:p-7 grid lg:grid-cols-[1.25fr_1fr] gap-7 items-center'>
-      <a
-        href={project.demo_link ?? project.source_code_link}
-        target='_blank'
-        rel='noreferrer'
-        className='group relative block overflow-hidden rounded-2xl aspect-[2/1]'
-      >
-        <img
-          src={project.image}
-          alt={`${project.name} cover`}
-          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]'
-        />
-      </a>
-      <div className='flex flex-col gap-4'>
-        <p className='text-[12px] uppercase tracking-[0.18em] text-[#915eff] font-semibold'>
-          Featured · {project.kind}
-        </p>
-        <h3 className='text-white font-black text-[34px] sm:text-[44px] leading-none'>{project.name}</h3>
-        <p className='text-secondary text-[16px] leading-[27px]'>{project.description}</p>
-        <Tags tags={project.tags} />
-        <div className='mt-2'>
-          <ProjectLinks {...project} size='lg' />
-        </div>
-      </div>
-    </div>
-  </motion.article>
-);
+// Projects as a stack of pinned cards: each one sticks near the top while the
+// next slides up over it, and the ones underneath shrink and dim.
+const StackCard = ({ project, index, total, progress }) => {
+  const frame = useRef(null);
+  const last = index === total - 1;
+  const range = [index / total, 1];
+  const scale = useTransform(progress, range, [1, last ? 1 : 1 - (total - index) * 0.035]);
+  const dim = useTransform(progress, range, [0, last ? 0 : 0.55]);
 
-const ProjectCard = ({ index, ...project }) => (
-  <motion.article variants={fadeIn('up', 'spring', 0.08 * index, 0.75)} className='group h-full'>
-    <Tilt options={{ max: 8, scale: 1.02, speed: 600 }} className='h-full'>
-      <div className='card-frame h-full p-[1px] rounded-[22px]'>
-        <div className='h-full bg-tertiary rounded-[21px] p-4 flex flex-col'>
-          <div className='relative overflow-hidden rounded-2xl aspect-[2/1]'>
-            <img
+  // inside the card, the cover settles from a slight zoom as the card arrives
+  const { scrollYProgress: arrive } = useScroll({ target: frame, offset: ['start end', 'start start'] });
+  const imageScale = useTransform(arrive, [0, 1], [1.25, 1]);
+
+  return (
+    <div ref={frame} className='h-[88vh] sticky top-0 flex items-start justify-center pt-[96px]'>
+      <motion.article
+        style={{ scale, top: `${index * 14}px` }}
+        className='relative w-full origin-top green-pink-gradient p-[1px] rounded-[26px] shadow-card'
+      >
+        <div className='relative overflow-hidden bg-tertiary rounded-[25px] p-4 sm:p-6 grid lg:grid-cols-[1.35fr_1fr] gap-5 lg:gap-8 items-center'>
+          <a
+            href={project.demo_link ?? project.source_code_link}
+            {...(isExternal(project.demo_link ?? project.source_code_link) ? { target: '_blank', rel: 'noreferrer' } : {})}
+            className='relative block overflow-hidden rounded-2xl aspect-[2/1]'
+            aria-label={`Open ${project.name}`}
+          >
+            <motion.img
+              style={{ scale: imageScale }}
               src={project.image}
               alt={`${project.name} cover`}
-              loading='lazy'
-              className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]'
+              loading={index < 2 ? 'eager' : 'lazy'}
+              className='w-full h-full object-cover'
             />
-            <div className='absolute top-3 left-3'>
+            <span className='absolute top-3 left-3'>
               <Kind>{project.kind}</Kind>
+            </span>
+          </a>
+          <div className='flex flex-col gap-3 sm:gap-4 px-1 pb-1'>
+            <p className='flex items-baseline gap-3 text-[12px] uppercase tracking-[0.18em] font-semibold'>
+              <span className='text-white/35 tabular-nums'>
+                {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+              </span>
+              {index === 0 && <span className='text-[#915eff]'>Featured</span>}
+            </p>
+            <h3 className='text-white font-black text-[26px] sm:text-[38px] leading-none'>{project.name}</h3>
+            <p className='text-secondary text-[14px] sm:text-[16px] leading-[24px] sm:leading-[27px] line-clamp-3 lg:line-clamp-none'>
+              {project.description}
+            </p>
+            <Tags tags={project.tags} />
+            <div className='mt-1'>
+              <ProjectLinks {...project} size='lg' />
             </div>
           </div>
-          <div className='mt-5 flex-1 flex flex-col gap-3 px-1'>
-            <h3 className='text-white font-bold text-[22px] leading-tight'>{project.name}</h3>
-            <p className='text-secondary text-[14px] leading-[23px] line-clamp-4'>{project.description}</p>
-            <div className='mt-auto pt-2 flex flex-col gap-4'>
-              <Tags tags={project.tags} />
-              <ProjectLinks {...project} />
-            </div>
-          </div>
+          {/* darkens the card as later ones stack on top of it */}
+          <motion.div aria-hidden style={{ opacity: dim }} className='pointer-events-none absolute inset-0 bg-primary' />
         </div>
-      </div>
-    </Tilt>
-  </motion.article>
-);
+      </motion.article>
+    </div>
+  );
+};
+
+const ProjectStack = ({ projects }) => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({ target: container, offset: ['start start', 'end end'] });
+  return (
+    <div ref={container} className='relative mt-6'>
+      {projects.map((project, index) => (
+        <StackCard
+          key={project.source_code_link}
+          project={project}
+          index={index}
+          total={projects.length}
+          progress={scrollYProgress}
+        />
+      ))}
+    </div>
+  );
+};
 
 const EarlierWork = () => (
   <motion.div variants={fadeIn('up', 'spring', 0.2, 0.75)} className='mt-16'>
@@ -149,7 +165,6 @@ const EarlierWork = () => (
 
 const Works = () => {
   const { projects, live } = useGithubProjects();
-  const [featured, ...rest] = projects;
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -166,14 +181,7 @@ const Works = () => {
         {live && ' This list is loaded live from my GitHub.'}
       </motion.p>
 
-      <div className='mt-14 flex flex-col gap-7'>
-        {featured && <FeaturedProject {...featured} />}
-        <div className='grid gap-7 md:grid-cols-2 lg:grid-cols-3'>
-          {rest.map((project, index) => (
-            <ProjectCard key={project.source_code_link} index={index} {...project} />
-          ))}
-        </div>
-      </div>
+      <ProjectStack projects={projects} />
 
       <EarlierWork />
     </>

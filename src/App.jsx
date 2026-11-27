@@ -1,7 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
-import { About, Contact, Experience, Footer, Hero, Lab, Navbar, Tech, Works, StarsCanvas } from './components';
+import { useSmoothScroll } from "./hooks/useSmoothScroll";
+import { About, Contact, Experience, Footer, Hero, Lab, Navbar, ScrollGallery, Tech, Works, StarsCanvas } from './components';
 
 const App = () => {
+  useSmoothScroll();
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
@@ -12,6 +14,7 @@ const App = () => {
         <About />
         <Experience />
         <Tech />
+        <ScrollGallery />
         <Works />
         <Lab />
         <div className="relative z-0">

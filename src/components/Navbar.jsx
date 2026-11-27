@@ -30,7 +30,7 @@ const Navbar = () => {
             <span className='sm:block hidden'>| Gaydarov</span>
           </p>
         </Link>
-        <ul className='list-none hidden md:flex flex-row items-center gap-8'>
+        <ul className='list-none hidden lg:flex flex-row items-center gap-8'>
           {navLinks.map((link) => (
             <li
               key={link.id}
@@ -53,7 +53,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className='md:hidden flex flex-1 justify-end items-center'>
+        <div className='lg:hidden flex flex-1 justify-end items-center'>
           <img 
             src={toggle ? close : menu} alt="menu" 
             className='w-[28px] h-[28px] object-contain cursor-pointer' 

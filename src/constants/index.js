@@ -29,6 +29,7 @@ import {
    grandPrix,
    ipadDashboard,
    labCover,
+   nodejs,
  } from "../assets";
 
  // Kaloyan's Lab lives on this same site: kaloyan.vercel.app/lab is
@@ -43,6 +44,10 @@ import {
    {
      id: "work",
      title: "Work",
+   },
+   {
+     id: "skills",
+     title: "Skills",
    },
    {
      id: "projects",
@@ -125,23 +130,65 @@ import {
    },
  ];
 
- // Each icon is its own 3D canvas. Browsers allow about 16 at once, and the
- // hero PC, globe and stars use 3 of them: more than 13 icons here makes the
- // browser drop the hero and globe (they render white).
+ // CV-style summary at the top of the Overview. Plain text on purpose: it's
+ // what recruiters scan and search for.
+ export const profile = {
+   role: "Full-Stack Web Developer",
+   headlineStack: ["TypeScript", "React", "Next.js", "Node.js", "PHP", "PostgreSQL", "Three.js"],
+   summary:
+     "Full-stack web developer with a BSc in Computer Science from the University of Exeter, working professionally on production web applications in JavaScript and PHP since January 2025. I build products end to end in TypeScript, React and Next.js: REST APIs and WebSockets, PostgreSQL and MySQL databases, Stripe payments, authentication, signed webhooks and serverless deployments on Vercel, plus real-time 3D and games with Three.js.",
+   glance: [
+     { label: "Current role", value: "Web Developer, Secure.bg", detail: "Jan 2025 – present" },
+     { label: "Education", value: "BSc Computer Science", detail: "University of Exeter, 2021 – 2024" },
+     { label: "Core stack", value: "TypeScript · React · Next.js · Node.js · PHP" },
+     { label: "Data and cloud", value: "PostgreSQL · MySQL · Supabase · Vercel" },
+     { label: "Languages", value: "English · Bulgarian" },
+   ],
+ };
+
+ // Skills, grouped the way job ads list them. Every item is used in my work
+ // or in a project on this site.
+ export const skillGroups = [
+   {
+     title: "Languages",
+     items: ["TypeScript", "JavaScript", "PHP", "SQL", "HTML5", "CSS3", "Python", "Java", "C", "Haskell", "Prolog"],
+   },
+   {
+     title: "Frontend",
+     items: ["React", "Next.js", "Vue 3", "Nuxt 3", "Tailwind CSS", "Pinia", "Framer Motion", "jQuery", "AJAX", "Responsive design", "Accessibility"],
+   },
+   {
+     title: "Backend and APIs",
+     items: ["Node.js", "NestJS", "REST APIs", "WebSockets", "Webhooks (HMAC)", "Serverless functions", "Prisma", "Authentication"],
+   },
+   {
+     title: "Databases and cloud",
+     items: ["PostgreSQL", "MySQL", "Supabase", "MongoDB", "Vercel", "Cloudinary"],
+   },
+   {
+     title: "Integrations",
+     items: ["Stripe", "GitHub Apps", "Spotify API", "Resend (email)", "Gemini AI", "Tesseract OCR", "pdf.js / pdf-lib"],
+   },
+   {
+     title: "3D and graphics",
+     items: ["Three.js", "React Three Fiber", "WebGL", "Brain.js", "Game development"],
+   },
+   {
+     title: "Tools and practices",
+     items: ["Git", "GitHub Actions (CI)", "Vitest", "Docker", "Figma", "i18n", "Legacy migration (Vue 2→3, Nuxt 2→3)"],
+   },
+ ];
+
+ // The few spinning 3D icons above the skills list. Each is its own WebGL
+ // canvas, and browsers allow about 16 at once (hero, globe and stars use 3).
  const technologies = [
-   { name: "JavaScript", icon: javascript },
    { name: "TypeScript", icon: typescript },
-   { name: "React JS", icon: reactjs },
-   { name: "Tailwind CSS", icon: tailwind },
-   { name: "Three JS", icon: threejs },
-   { name: "Vue", icon: vue },
-   { name: "Nuxt", icon: nuxt },
+   { name: "JavaScript", icon: javascript },
+   { name: "React", icon: reactjs },
+   { name: "Node.js", icon: nodejs },
    { name: "PHP", icon: php },
-   { name: "Java", icon: java },
-   { name: "C", icon: c },
-   { name: "Python", icon: python },
-   { name: "Haskell", icon: haskell },
-   { name: "Prolog", icon: prolog },
+   { name: "Three.js", icon: threejs },
+   { name: "Tailwind CSS", icon: tailwind },
  ];
 
  // Newest first. start/end are "YYYY-MM"; end: null means current.

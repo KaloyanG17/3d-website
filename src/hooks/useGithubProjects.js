@@ -8,7 +8,7 @@ import { GITHUB_USER, PORTFOLIO_REPOS, projectOverrides, projects as fallbackPro
 // The hand-written list is shown while loading, and if GitHub can't be
 // reached (e.g. its 60 requests/hour limit for visitors).
 
-const CACHE_KEY = "portfolio-projects-v2";
+const CACHE_KEY = "portfolio-projects-v3";
 const CACHE_MS = 60 * 60 * 1000;
 const TAG_COLORS = ["blue-text-gradient", "green-text-gradient", "pink-text-gradient"];
 
@@ -22,12 +22,13 @@ export function toProject(repo) {
   const tagNames = override.tags ?? (topics.length > 0 ? topics.slice(0, 4) : [repo.language].filter(Boolean));
   return {
     name: override.name ?? prettyName(repo.name),
+    kind: override.kind ?? repo.language ?? "Project",
     description: override.description ?? repo.description ?? "",
     tags: tagNames.map((name, i) => ({ name, color: TAG_COLORS[i % TAG_COLORS.length] })),
     // GitHub renders a preview card for every repo; overrides can use a screenshot instead.
     image: override.image ?? `https://opengraph.githubassets.com/1/${repo.full_name}`,
     source_code_link: repo.html_url,
-    demo_link: repo.homepage || null,
+    demo_link: override.demo_link ?? (repo.homepage || null),
   };
 }
 

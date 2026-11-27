@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav
       className={`
-        ${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary
+        ${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary/80 backdrop-blur-md border-b border-white/5
       `}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
@@ -30,7 +30,7 @@ const Navbar = () => {
             <span className='sm:block hidden'>| Gaydarov</span>
           </p>
         </Link>
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className='list-none hidden md:flex flex-row items-center gap-8'>
           {navLinks.map((link) => (
             <li
               key={link.id}
@@ -39,12 +39,21 @@ const Navbar = () => {
               } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              {link.href ? (
+                <a
+                  href={link.href}
+                  className='rounded-full border border-[#ff3b1f]/60 px-4 py-1.5 text-white hover:bg-[#ff3b1f] transition-colors'
+                >
+                  {link.title} →
+                </a>
+              ) : (
+                <a href={`#${link.id}`}>{link.title}</a>
+              )}
             </li>
           ))}
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className='md:hidden flex flex-1 justify-end items-center'>
           <img 
             src={toggle ? close : menu} alt="menu" 
             className='w-[28px] h-[28px] object-contain cursor-pointer' 
@@ -63,7 +72,7 @@ const Navbar = () => {
                     setToggle(!toggle);
                   }}
                 >
-                  <a href={`#${link.id}`}>{link.title}</a>
+                  <a href={link.href ?? `#${link.id}`}>{link.href ? `${link.title} →` : link.title}</a>
                 </li>
               ))}
             </ul>

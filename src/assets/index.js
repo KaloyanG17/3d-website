@@ -38,8 +38,15 @@ import exeter from "./company/exeter.png";
 import twitter from "./twitter.png";
 import spotify from "./spotify.png";
 import website from "./website.png";
-import shiplog from "./shiplog.jpg";
-import simulatedMotorsport from "./simulated-motorsport.jpg";
+// Project covers: each repo's docs/cover.jpg, resized for the web.
+import shiplog from "./projects/shiplog.jpg";
+import simulatedMotorsport from "./projects/simulated-motorsport.jpg";
+import hexbound from "./projects/hexbound.jpg";
+import kokolina from "./projects/kokolina.jpg";
+import pdfStudio from "./projects/pdf-studio.jpg";
+import grandPrix from "./projects/iphoneporfolio.jpg";
+import ipadDashboard from "./projects/ipad-dashboard.jpg";
+import labCover from "./projects/kaloyans-lab.jpg";
 
 export {
   logo,
@@ -80,5 +87,11 @@ export {
   spotify,
   website,
   shiplog,
-  simulatedMotorsport
+  simulatedMotorsport,
+  hexbound,
+  kokolina,
+  pdfStudio,
+  grandPrix,
+  ipadDashboard,
+  labCover,
 };

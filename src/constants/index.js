@@ -81,22 +81,47 @@ import {
    { name: "This portfolio", stack: "React · Three.js · Tailwind", repo: "3d-website", demo: null, image: null },
  ];
 
- const services = [
+ // Overview: what I focus on, the stack for each, and the projects that show it.
+ const focusAreas = [
    {
-     title: "Full-Stack Developer",
+     title: "Full-stack products",
      icon: web,
+     blurb: "Shops, dashboards and tools built end to end: data, auth, payments, emails and the admin side.",
+     stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Stripe"],
+     proof: [
+       { name: "Kokolina", href: "#projects" },
+       { name: "Shiplog", href: "#projects" },
+     ],
    },
    {
-     title: "Frontend: React, Vue, Next.js",
+     title: "Interfaces",
      icon: creator,
+     blurb: "Fast, careful front ends with motion and detail, from editors to kiosk dashboards.",
+     stack: ["React", "Vue", "Nuxt", "Tailwind CSS"],
+     proof: [
+       { name: "PDF Studio", href: "#projects" },
+       { name: "iPad Dashboard", href: "#projects" },
+     ],
    },
    {
-     title: "Backend: PHP, Node.js, SQL",
+     title: "Backend and APIs",
      icon: backend,
+     blurb: "Services that hold up in production: REST APIs, WebSockets, signed webhooks and legacy systems.",
+     stack: ["PHP", "Node.js", "NestJS", "MySQL"],
+     proof: [
+       { name: "Secure.bg", href: "#work" },
+       { name: "PDF Studio", href: "#projects" },
+     ],
    },
    {
-     title: "3D on the Web: Three.js",
+     title: "3D and games",
      icon: mobile,
+     blurb: "Real-time 3D in the browser: games, simulations and interactive pieces in Three.js.",
+     stack: ["Three.js", "React Three Fiber", "TypeScript"],
+     proof: [
+       { name: "Hexbound", href: "#projects" },
+       { name: "The Lab", href: LAB_URL },
+     ],
    },
  ];
 
@@ -119,51 +144,64 @@ import {
    { name: "Prolog", icon: prolog },
  ];
 
- // Newest first.
+ // Newest first. start/end are "YYYY-MM"; end: null means current.
  const experiences = [
    {
      title: "Web Developer",
      company_name: "Secure.bg",
+     type: "Work",
      icon: web,
      iconBg: "#E6DEDD",
-     date: "January 2025 - Present",
+     start: "2025-01",
+     end: null,
      points: [
        "Full-stack web development with JavaScript and PHP",
        "Building and maintaining web applications with jQuery, AJAX and MySQL",
        "Working with REST APIs, WebSockets and legacy system maintenance",
      ],
+     tags: ["JavaScript", "PHP", "MySQL", "jQuery", "REST", "WebSockets"],
    },
    {
      title: "BSc Computer Science",
      company_name: "University of Exeter",
+     type: "Education",
      icon: exeter,
      iconBg: "#E6DEDD",
-     date: "September 2021 - July 2024",
+     start: "2021-09",
+     end: "2024-07",
      points: [
        "Every year completed with Upper Second-Class (2:1) results",
        "Dissertation: an AI-driven 3D motorsport race simulation (Three.js, neural networks)",
        "Modules across software engineering, AI, databases and functional and logic programming",
      ],
+     tags: ["Three.js", "AI", "Java", "Haskell", "Prolog", "SQL"],
+     link: { label: "See the dissertation project", href: "https://simulated-motorsport.vercel.app" },
    },
    {
      title: "Summer Internship",
      company_name: "Refactory BG",
+     type: "Internship",
      icon: refactory,
      iconBg: "#E6DEDD",
-     date: "May 2023 - August 2023",
+     start: "2023-05",
+     end: "2023-08",
      points: [
        "Migrated projects from Vue 2 to Vue 3 and Nuxt 2 to Nuxt 3",
        "Upgraded older Angular 7 and Electron 3 projects to newer versions",
        "Worked with Vue, Nuxt and virtual machines in a production team",
      ],
+     tags: ["Vue 3", "Nuxt 3", "Angular", "Electron"],
    },
    {
      title: "A Levels",
      company_name: "Havering Sixth Form College",
+     type: "Education",
      icon: havering,
      iconBg: "#E6DEDD",
-     date: "September 2019 - July 2021",
+     start: "2019-09",
+     end: "2021-07",
      points: ["A in Maths", "B in Computer Science", "C in Further Maths"],
+     tags: ["Maths", "Computer Science", "Further Maths"],
    },
  ];
 
@@ -260,4 +298,4 @@ import {
    };
  });
 
- export { services, technologies, experiences, projects };
+ export { focusAreas, technologies, experiences, projects };
